@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import './App.css';
+import Title from './components/Title';
+
 
 function App() {
-
-
   // arrayy  yaratib  uni funcsiyada foydalanib ishlatdik
-  const [name, setName] = useState('Nozima')
   const [showConent, setShowContent ] = useState(true)
   const [events, setEvents] = useState ([
     {title: "orinboyeva's birthday party", id: 1},
@@ -13,10 +12,6 @@ function App() {
     {title: "manchester united vs barcelona", id: 3}
   ])
 
-
-  const handleClick = () => {
-    setName('Nozi')
-  }
 
 
   // delete item 
@@ -27,14 +22,9 @@ function App() {
     setEvents(filteredEvents)
   }
 
-
-
-
   return (
     <div className="App">
-      <h1>My name is {name} </h1>
-      <button onClick={handleClick}>Change name</button>
-      <hr></hr>
+      <Title/>  
       {showConent && <button onClick={() => setShowContent(false)}>Hide Conent</button>}
       {!showConent && <button onClick={() => setShowContent(true)}>SHow Conent</button>}
       {showConent && <div>
