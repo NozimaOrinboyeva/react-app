@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Title from './components/Title';
+import Modal from './components/Modal';
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
   return (
     <div className="App">
       <Title/>  
+      <Modal>
+      <h1>Nozima O'rinboyeva Frontend developer💻</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, deserunt?</p>
+      </Modal>
       {showConent && <button onClick={() => setShowContent(false)}>Hide Conent</button>}
       {!showConent && <button onClick={() => setShowContent(true)}>SHow Conent</button>}
       {showConent && <div>
@@ -39,6 +44,7 @@ function App() {
             )
           })}
           </div>}
+          
     </div>
   );
 }
