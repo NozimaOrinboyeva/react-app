@@ -6,6 +6,7 @@ function App() {
 
   // arrayy  yaratib  uni funcsiyada foydalanib ishlatdik
   const [name, setName] = useState('Nozima')
+  const [showConent, setShowContent ] = useState(true)
   const [events, setEvents] = useState ([
     {title: "orinboyeva's birthday party", id: 1},
     {title: "noziorinboyeva's live stream", id: 2},
@@ -33,14 +34,21 @@ function App() {
     <div className="App">
       <h1>My name is {name} </h1>
       <button onClick={handleClick}>Change name</button>
-      {events.map((event) => {
-        return (
-          <div key={event.id}>
-            <h2>{event.title}</h2>
-            <button onClick={ () => handleDelete(event.id)}>Delete</button>
-            </div>
-        )
-      })}
+      <hr></hr>
+      {showConent && <button onClick={() => setShowContent(false)}>Hide Conent</button>}
+      {!showConent && <button onClick={() => setShowContent(true)}>SHow Conent</button>}
+      {showConent && <div>
+        {events.length === 0 && <h2>Not Conent Yet:(</h2>}
+        {
+          events.map((event) => {
+            return (
+              <div key={event.id}>
+                <h2>{event.title}</h2>
+                <button onClick={ () => handleDelete(event.id)}>Delete</button>
+                </div>
+            )
+          })}
+          </div>}
     </div>
   );
 }
