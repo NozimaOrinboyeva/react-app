@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import './App.css';
+import EventList from './components/EventList';
+// import React from 'react';
 import Title from './components/Title';
 import Modal from './components/Modal';
 
@@ -34,18 +36,7 @@ function App() {
 
       {showConent && <button onClick={() => setShowContent(false)}>Hide Conent</button>}
       {!showConent && <button onClick={() => setShowContent(true)}>Show Conent</button>}
-
-      {showConent && (
-        <div>
-          {events.length === 0 && <h2>Not Conent Yet :(</h2>}
-          {events.map((event) => (
-            <div key={event.id}>
-              <h2>{event.title}</h2>
-              <button onClick={() => handleDelete(event.id)}>Delete</button>
-            </div>
-          ))}
-        </div>
-      )}
+      {showConent && <EventList events={events} handleDelete={handleDelete}/>}
     </div>
   );
 }
