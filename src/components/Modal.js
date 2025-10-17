@@ -1,11 +1,16 @@
 import "./Modal.css";
+import "./Title.css";
 
-function Modal({ children, closeModal }) {
+function Modal({ children, closeModal, isModeModal}) {
   return (
     <div className="modal-backdrop">
-      <div className="modal">
+      <div className="modal" style={{
+        border: '4px solid',
+        borderColor: isModeModal ? 'yellowgreen' :  'red',
+        textAlign: 'center'
+      }}>
         {children}
-        <button onClick={closeModal}>Close</button>
+        <button className={isModeModal ? "modal-btn" : ""}  onClick={closeModal}>Close</button>
       </div>
     </div>
   );

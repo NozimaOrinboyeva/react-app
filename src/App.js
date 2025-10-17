@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       <Title />
       {showModal && (
-        <Modal closeModal={closeModal}>
+        <Modal closeModal={closeModal} isModeModal={true}>
           <h1>Nozima O'rinboyeva Frontend developer💻</h1>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, deserunt?</p>
         </Modal>
