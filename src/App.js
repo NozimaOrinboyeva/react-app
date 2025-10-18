@@ -4,6 +4,7 @@ import EventList from './components/EventList';
 // import React from 'react';
 import Title from './components/Title';
 import Modal from './components/Modal';
+import NewEventForm from './components/NewEventForm'
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -28,11 +29,12 @@ function App() {
       <Title />
       {showModal && (
         <Modal closeModal={closeModal} isModeModal={true}>
-          <h1>Nozima O'rinboyeva Frontend developer💻</h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, deserunt?</p>
+          <NewEventForm/>
+          {/* <h1>Nozima O'rinboyeva Frontend developer💻</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, deserunt?</p> */}
         </Modal>
       )}
-      <button onClick={() => {setShowModal(true)}}>Show Modal</button>
+      <button onClick={() => {setShowModal(true)}}>New Event</button>
 
       {showConent && <button onClick={() => setShowContent(false)}>Hide Conent</button>}
       {!showConent && <button onClick={() => setShowContent(true)}>Show Conent</button>}
