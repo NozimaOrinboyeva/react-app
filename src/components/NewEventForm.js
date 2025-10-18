@@ -1,5 +1,5 @@
 import './EventList.module.css'
-
+import { v4 as uuidv4 } from 'uuid'; 
 import { useState } from 'react'
 function NewEventForm() {
     const[title,setTitle] = useState('')
@@ -9,8 +9,21 @@ function NewEventForm() {
         setTitle('')
         setDate('')
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const event = {
+            title: title,
+            date: date,
+            id: uuidv4()
+        }
+
+        console.log(event)
+        resetInputs()
+    }
     return (
-        <form className="new-event-form">
+        <form className="new-event-form" onSubmit={handleSubmit}>
             <label>
                 <span>Event Title:</span>
                 <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
@@ -21,13 +34,10 @@ function NewEventForm() {
                 <input type="date" onChange={(e) => setDate(e.target.value)} value={date}/>
             </label>
             <br />
-            <button onClick={resetInputs} type="button">reset inputs</button>
+            {/* <button onClick={resetInputs} type="button">reset inputs</button> */}
             <br />
             <br />
             <button>Submit</button>
-            <hr/>
-            <p>Titele: {title}</p>
-            <p>Date: {date}</p>
         </form>
     )
 }
