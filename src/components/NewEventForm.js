@@ -1,7 +1,7 @@
 import './EventList.module.css'
 import { v4 as uuidv4 } from 'uuid'; 
 import { useState } from 'react'
-function NewEventForm() {
+function NewEventForm( {newEvent}) {
     const[title,setTitle] = useState('')
     const [date,setDate] = useState('')
 
@@ -19,7 +19,7 @@ function NewEventForm() {
             id: uuidv4()
         }
 
-        console.log(event)
+        newEvent(event)
         resetInputs()
     }
     return (
