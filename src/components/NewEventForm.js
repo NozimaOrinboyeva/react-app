@@ -4,6 +4,8 @@ import { useState } from 'react'
 function NewEventForm( {newEvent}) {
     const[title,setTitle] = useState('')
     const [date,setDate] = useState('')
+    const [location, setLocation] = useState('fargona')
+    // console.log("Location: ", location)
 
     const resetInputs = () => {
         setTitle('')
@@ -16,6 +18,7 @@ function NewEventForm( {newEvent}) {
         const event = {
             title: title,
             date: date,
+            location: location,
             id: uuidv4()
         }
 
@@ -32,11 +35,15 @@ function NewEventForm( {newEvent}) {
             <label>
                 <span>Event Date:</span>
                 <input type="date" onChange={(e) => setDate(e.target.value)} value={date}/>
-            </label>
-            <br />
-            {/* <button onClick={resetInputs} type="button">reset inputs</button> */}
-            <br />
-            <br />
+            </label><br />
+            <label> 
+                <span>Event Location:</span>
+                <select onChange={(e) => setLocation(e.target.value)}>
+                    <option value="fergana">Farg'ona</option>
+                    <option value="tashkent">Toshkent</option>
+                    <option value="xorazm">Xorazm</option>
+                </select>
+            </label> <br />
             <button>Submit</button>
         </form>
     )
